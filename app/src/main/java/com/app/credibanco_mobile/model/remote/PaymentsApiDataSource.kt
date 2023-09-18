@@ -19,8 +19,9 @@ class PaymentsApiDataSource @Inject constructor() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     suspend fun authorizeTransaction(request: AuthorizationRequest): Response<AuthorizationResponse>{
+        println(request)
         return withContext(Dispatchers.IO){
-            val token = base64("Basic " + request.commerceCode + request.terminalCode)
+            val token = "Basic " + base64(request.commerceCode + request.terminalCode)
             val response = retrofit.create(PaymentsApiClient::class.java).authorizeTransaction(token, request)
             response
         }

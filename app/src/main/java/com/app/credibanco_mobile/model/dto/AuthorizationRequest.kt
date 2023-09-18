@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class AuthorizationRequest(
 
     @SerializedName("id")
-    val id: Int,
+    val id: String,
 
     @SerializedName("commerceCode")
     val commerceCode: String,
